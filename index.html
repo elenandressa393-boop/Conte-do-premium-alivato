@@ -6,9 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-* {
-    box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
     margin: 0;
@@ -20,12 +18,12 @@ body {
     justify-content: center;
 }
 
+/* CONTAINER */
 .container {
     width: 100%;
     max-width: 420px;
     padding: 30px 20px 40px;
     text-align: center;
-    animation: fadeIn 1s ease;
 }
 
 /* FOTO */
@@ -37,19 +35,11 @@ body {
     object-fit: cover;
     margin: 10px auto 22px;
     box-shadow: 0 0 25px rgba(168,85,247,0.6);
-    transition: transform 0.3s ease;
     display: block;
 }
 
-.profile-pic:hover {
-    transform: scale(1.06) rotate(3deg);
-}
-
 /* TEXTOS */
-h1 {
-    font-size: 26px;
-    margin: 8px 0 5px;
-}
+h1 { font-size: 26px; margin: 8px 0 5px; }
 
 .info {
     font-size: 14px;
@@ -71,7 +61,6 @@ h1 {
     padding: 26px 20px;
     margin-bottom: 32px;
     box-shadow: 0 0 22px rgba(168,85,247,0.45);
-    animation: slideUp 1s ease;
 }
 
 .plans h2 {
@@ -83,7 +72,6 @@ h1 {
 .plan {
     font-size: 18px;
     margin: 14px 0;
-    color: #f3d9ff;
 }
 
 /* BOTÕES */
@@ -97,13 +85,6 @@ h1 {
     border-radius: 30px;
     font-weight: bold;
     display: block;
-    box-shadow: 0 0 15px rgba(192,132,252,0.6);
-    transition: transform 0.2s ease, background 0.3s ease;
-}
-
-.btn:hover {
-    transform: scale(1.05);
-    background: linear-gradient(135deg, #d946ef, #f3a8f1);
 }
 
 /* MODAL */
@@ -111,44 +92,54 @@ h1 {
     display: none;
     position: fixed;
     inset: 0;
-    background: rgba(10,0,20,0.9);
+    background: rgba(10,0,20,0.92);
     justify-content: center;
     align-items: center;
-    z-index: 100;
+    z-index: 999;
 }
 
+/* MODAL CONTENT */
 .modal-content {
     background: #14001f;
-    padding: 22px;
+    padding: 20px;
     border-radius: 22px;
-    max-width: 90%;
     width: 380px;
+    max-width: 92%;
+    max-height: 80vh;
+    overflow-y: auto;
     text-align: center;
 }
 
-video {
+/* WRAPPER DO VÍDEO (ESSENCIAL) */
+.video-box {
     width: 100%;
-    border-radius: 10px;
-    margin-bottom: 10px;
+    max-width: 260px;
+    height: 160px;          /* ALTURA FIXA */
+    margin: 0 auto 14px;
+    border-radius: 14px;
+    overflow: hidden;       /* IMPEDE ESTOURAR */
+    background: #000;
+}
+
+/* VÍDEO */
+.video-box video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;      /* CORTA SEM ESTOURAR */
     display: none;
 }
 
+/* FECHAR */
 .close {
-    margin-top: 10px;
-    color: #f5d0fe;
+    margin-top: 12px;
+    padding: 12px;
+    background: #9333ea;
+    border-radius: 25px;
+    color: #fff;
+    font-weight: bold;
     cursor: pointer;
-    font-size: 16px;
-}
-
-/* ANIMAÇÕES */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideUp {
-    from { transform: translateY(30px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+    position: sticky;
+    bottom: 0;
 }
 </style>
 </head>
@@ -164,41 +155,38 @@ video {
 
     <div class="bio">
         Hi… I’m a Brazilian girl 🇧🇷✨<br><br>
-        I’m a little <strong>slutty</strong>, very naughty,
-        and I love being watched 😈🔥<br><br>
+        I’m naughty, seductive and I love being watched 😈🔥<br><br>
         I create exclusive content for those who want pleasure,
-        temptation and late-night fantasies that stay in your head.<br><br>
-        If you’re curious, lonely, or just want to see something delicious
-        and a little crazy…<br>
-        <strong>come see me. Come closer 🔥💜</strong>
+        temptation and late-night fantasies.<br><br>
+        <strong>Come closer 💜</strong>
     </div>
 
     <div class="plans">
-    <h2>Choose Your Access</h2>
-    <div class="plan">🔥 Basic Access — <strong>$19.99</strong></div>
-    <div class="plan">💜 VIP Access — <strong>$39.99</strong></div>
-</div>
+        <h2>Choose Your Access</h2>
+        <div class="plan">🔥 Basic — <strong>$19.99</strong></div>
+        <div class="plan">💜 VIP — <strong>$39.99</strong></div>
+    </div>
 
-<!-- FRASE CHAMATIVA -->
-<div style="font-size:21px; color:#f5d0fe; margin-bottom:12px; font-weight:bold;">
-    If you’re interested in my content, hit me up on WhatsApp 📲💜
-</div>
-
-<a href="https://wa.me/5511912856217" class="btn">Chat with me on WhatsApp</a>
-<a href="#" class="btn" onclick="openPreview()">Preview</a>
-
+    <a href="https://wa.me/5511912856217" class="btn">Chat on WhatsApp</a>
+    <a href="#" class="btn" onclick="openPreview()">Preview</a>
 
 </div>
 
+<!-- MODAL -->
 <div class="modal" id="previewModal">
     <div class="modal-content">
-        <video id="video1" controls>
-            <source src="video1.mp4" type="video/mp4">
-        </video>
 
-        <video id="video2" controls>
-            <source src="video2.mp4" type="video/mp4">
-        </video>
+        <div class="video-box">
+            <video id="video1" controls playsinline webkit-playsinline>
+                <source src="video1.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="video-box">
+            <video id="video2" controls playsinline webkit-playsinline>
+                <source src="video2.mp4" type="video/mp4">
+            </video>
+        </div>
 
         <div class="close" onclick="closePreview()">Close Preview</div>
     </div>
@@ -207,19 +195,23 @@ video {
 <script>
 function openPreview() {
     document.getElementById('previewModal').style.display = 'flex';
-    document.getElementById('video1').style.display = 'block';
-    document.getElementById('video2').style.display = 'block';
-    document.getElementById('video1').load();
-    document.getElementById('video2').load();
+    ['video1','video2'].forEach(id => {
+        const v = document.getElementById(id);
+        v.style.display = 'block';
+        v.pause();
+        v.currentTime = 0;
+    });
 }
 
 function closePreview() {
+    ['video1','video2'].forEach(id => {
+        const v = document.getElementById(id);
+        v.pause();
+        v.style.display = 'none';
+    });
     document.getElementById('previewModal').style.display = 'none';
-    document.getElementById('video1').style.display = 'none';
-    document.getElementById('video2').style.display = 'none';
 }
 </script>
 
 </body>
-
-</h
+</ht
