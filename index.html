@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Purple Night Desire</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: radial-gradient(circle at top, #3b0a57, #0b0214);
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 420px;
+    padding: 30px 20px 40px;
+    text-align: center;
+    animation: fadeIn 1s ease;
+}
+
+/* FOTO */
+.profile-pic {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 4px solid #a855f7;
+    object-fit: cover;
+    margin: 10px auto 22px;
+    box-shadow: 0 0 25px rgba(168,85,247,0.6);
+    transition: transform 0.3s ease;
+    display: block;
+}
+
+.profile-pic:hover {
+    transform: scale(1.06) rotate(3deg);
+}
+
+/* TEXTOS */
+h1 {
+    font-size: 26px;
+    margin: 8px 0 5px;
+}
+
+.info {
+    font-size: 14px;
+    color: #d8b4fe;
+    margin-bottom: 22px;
+}
+
+.bio {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #f5d0fe;
+    margin-bottom: 32px;
+}
+
+/* PLANOS */
+.plans {
+    background: rgba(255,255,255,0.07);
+    border-radius: 24px;
+    padding: 26px 20px;
+    margin-bottom: 32px;
+    box-shadow: 0 0 22px rgba(168,85,247,0.45);
+    animation: slideUp 1s ease;
+}
+
+.plans h2 {
+    font-size: 22px;
+    margin-bottom: 18px;
+    color: #e9d5ff;
+}
+
+.plan {
+    font-size: 18px;
+    margin: 14px 0;
+    color: #f3d9ff;
+}
+
+/* BOTÕES */
+.btn {
+    width: 100%;
+    padding: 15px;
+    margin: 14px 0;
+    background: linear-gradient(135deg, #9333ea, #c084fc);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    display: block;
+    box-shadow: 0 0 15px rgba(192,132,252,0.6);
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #d946ef, #f3a8f1);
+}
+
+/* MODAL */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(10,0,20,0.9);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal-content {
+    background: #14001f;
+    padding: 22px;
+    border-radius: 22px;
+    max-width: 90%;
+    width: 380px;
+    text-align: center;
+}
+
+video {
+    width: 100%;
+    border-radius: 15px;
+    margin-bottom: 15px;
+    display: none;
+}
+
+.close {
+    margin-top: 10px;
+    color: #f5d0fe;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* ANIMAÇÕES */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <img src="foto.jpg" class="profile-pic">
+
+    <h1>Cibeli Alves</h1>
+    <div class="info">18 years old • Brazilian 🇧🇷</div>
+
+    <div class="bio">
+        Hi… I’m a Brazilian girl 🇧🇷✨<br><br>
+        I’m a little <strong>slutty</strong>, very naughty,
+        and I love being watched 😈🔥<br><br>
+        I create exclusive content for those who want pleasure,
+        temptation and late-night fantasies that stay in your head.<br><br>
+        If you’re curious, lonely, or just want to see something delicious
+        and a little crazy…<br>
+        <strong>come see me. Come closer 🔥💜</strong>
+    </div>
+
+    <div class="plans">
+    <h2>Choose Your Access</h2>
+    <div class="plan">🔥 Basic Access — <strong>$19.99</strong></div>
+    <div class="plan">💜 VIP Access — <strong>$39.99</strong></div>
+</div>
+
+<!-- FRASE CHAMATIVA -->
+<div style="font-size:21px; color:#f5d0fe; margin-bottom:12px; font-weight:bold;">
+    If you’re interested in my content, hit me up on WhatsApp 📲💜
+</div>
+
+<a href="https://wa.me/5511912856217" class="btn">Chat with me on WhatsApp</a>
+<a href="#" class="btn" onclick="openPreview()">Preview</a>
+
+
+</div>
+
+<div class="modal" id="previewModal">
+    <div class="modal-content">
+        <video id="video1" controls>
+            <source src="video1.mp4" type="video/mp4">
+        </video>
+
+        <video id="video2" controls>
+            <source src="video2.mp4" type="video/mp4">
+        </video>
+
+        <div class="close" onclick="closePreview()">Close Preview</div>
+    </div>
+</div>
+
+<script>
+function openPreview() {
+    document.getElementById('previewModal').style.display = 'flex';
+    document.getElementById('video1').style.display = 'block';
+    document.getElementById('video2').style.display = 'block';
+    document.getElementById('video1').load();
+    document.getElementById('video2').load();
+}
+
+function closePreview() {
+    document.getElementById('previewModal').style.display = 'none';
+    document.getElementById('video1').style.display = 'none';
+    document.getElementById('video2').style.display = 'none';
+}
+</script>
+
+</body>
+</h
