@@ -20,6 +20,7 @@ body {
     justify-content: center;
 }
 
+/* CONTAINER */
 .container {
     width: 100%;
     max-width: 420px;
@@ -117,27 +118,40 @@ h1 {
     z-index: 100;
 }
 
+/* CONTEÚDO MODAL */
 .modal-content {
     background: #14001f;
     padding: 22px;
     border-radius: 22px;
-    max-width: 90%;
     width: 380px;
+    max-width: 90%;
+    max-height: 85vh;       /* não estoura tela */
+    overflow-y: auto;       /* scroll interno */
     text-align: center;
 }
 
+/* VÍDEOS */
 video {
     width: 100%;
-    border-radius: 10px;
-    margin-bottom: 10px;
+    max-width: 260px;       /* tamanho controlado */
+    max-height: 160px;
+    margin: 0 auto 14px;    /* centraliza */
+    border-radius: 11px;
     display: none;
 }
 
+/* BOTÃO FECHAR */
 .close {
     margin-top: 10px;
-    color: #f5d0fe;
+    padding: 10px;
+    background: #9333ea;
+    border-radius: 20px;
+    color: #fff;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 15px;
+    font-weight: bold;
+    position: sticky;
+    bottom: 0;
 }
 
 /* ANIMAÇÕES */
@@ -174,24 +188,24 @@ video {
     </div>
 
     <div class="plans">
-    <h2>Choose Your Access</h2>
-    <div class="plan">🔥 Basic Access — <strong>$19.99</strong></div>
-    <div class="plan">💜 VIP Access — <strong>$39.99</strong></div>
-</div>
+        <h2>Choose Your Access</h2>
+        <div class="plan">🔥 Basic Access — <strong>$19.99</strong></div>
+        <div class="plan">💜 VIP Access — <strong>$39.99</strong></div>
+    </div>
 
-<!-- FRASE CHAMATIVA -->
-<div style="font-size:21px; color:#f5d0fe; margin-bottom:12px; font-weight:bold;">
-    If you’re interested in my content, hit me up on WhatsApp 📲💜
-</div>
+    <div style="font-size:21px; color:#f5d0fe; margin-bottom:12px; font-weight:bold;">
+        If you’re interested in my content, hit me up on WhatsApp 📲💜
+    </div>
 
-<a href="https://wa.me/5511912856217" class="btn">Chat with me on WhatsApp</a>
-<a href="#" class="btn" onclick="openPreview()">Preview</a>
-
+    <a href="https://wa.me/5511912856217" class="btn">Chat with me on WhatsApp</a>
+    <a href="#" class="btn" onclick="openPreview()">Preview</a>
 
 </div>
 
+<!-- MODAL PREVIEW -->
 <div class="modal" id="previewModal">
     <div class="modal-content">
+
         <video id="video1" controls>
             <source src="video1.mp4" type="video/mp4">
         </video>
@@ -207,19 +221,23 @@ video {
 <script>
 function openPreview() {
     document.getElementById('previewModal').style.display = 'flex';
-    document.getElementById('video1').style.display = 'block';
-    document.getElementById('video2').style.display = 'block';
-    document.getElementById('video1').load();
-    document.getElementById('video2').load();
+    ['video1','video2'].forEach(id => {
+        const v = document.getElementById(id);
+        v.style.display = 'block';
+        v.currentTime = 0;
+        v.load();
+    });
 }
 
 function closePreview() {
+    ['video1','video2'].forEach(id => {
+        const v = document.getElementById(id);
+        v.pause();
+        v.style.display = 'none';
+    });
     document.getElementById('previewModal').style.display = 'none';
-    document.getElementById('video1').style.display = 'none';
-    document.getElementById('video2').style.display = 'none';
 }
 </script>
 
 </body>
-
-</h
+</html>
